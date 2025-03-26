@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}編集{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Edit Task</h2>
+
+    <form action="/update/{{ task.id }}" method="post" value="{{ task.title }}" class="mb-5">
+        <input type="text" name="title" value="{{ task.title }}" required>
+        <button type="submit" class="btn btn-primary">編集</button>
+        <a href="/">戻る</a>
+    </form>
+
+</div>
+
+{% endblock %}

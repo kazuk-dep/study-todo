@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}登録{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Task List</h2>
+
+    <!-- タスク追加フォーム -->
+    <form action="/add" method="post" class="mb-5">
+        <input type="text" name="title" placeholder="New task" required>
+        <button type="submit" class="btn btn-primary">追加</button>
+    </form>
+
+    <!-- タスク一覧を表示 -->
+    <ul class="list-group">
+        {% for task in tasks %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ task.title }}  <!-- タスクのタイトルを表示 -->
+                <a href="/delete/{{ task.id }}" class="btn btn-danger btn-sm">削除</a>
+                <a href="/edit/{{ task.id }}" class="btn btn-danger btn-sm">編集</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
